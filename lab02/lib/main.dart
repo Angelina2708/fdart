@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dart:io';
+import 'dart:io'; //для можливості використовувати File Image
 
 void main() {
   runApp(MyApp());
@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Переглядач картинок :)'),
+        title: Text('Лабораторна робота №2, перегляд картинок як слайдер ;)'),
       ),
       body: Column(
         children: [
@@ -91,7 +91,7 @@ class CategoryScreen extends StatefulWidget {
 
 class _CategoryScreenState extends State<CategoryScreen> {
   int currentImageIndex = 1;
-  int totalImages = 3; // Загальна кількість фотографій в папці (змініть на відповідне значення)
+  int totalImages = 3; // Загальна кількість фотографій в папці
 
   void showNextImage() {
     if (currentImageIndex < totalImages) {
@@ -120,9 +120,10 @@ class _CategoryScreenState extends State<CategoryScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.file(
-              File('${widget.imagePath}/${widget.categoryName.toLowerCase()}-$currentImageIndex.jpeg'),
-              width: 200,
-              height: 200,
+              File(
+                  '${widget.imagePath}/${widget.categoryName.toLowerCase()}-$currentImageIndex.jpeg'),
+              width: 500,
+              height: 350,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
