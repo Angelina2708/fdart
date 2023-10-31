@@ -20,7 +20,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<double> familyExpenses = [0.0, 0.0, 0.0, 0.0]; // Expenses for father, mother, child 1, child 2;
+  List<double> familyExpenses = [0.0, 0.0, 0.0, 0.0];
   double totalExpenses = 0.0;
 
   @override
@@ -29,11 +29,34 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text('Витрати сім\'ї'),
       ),
-      body: Column(
-        children: [
-          FamilyExpensesInput(familyExpenses, updateTotalExpenses),
-          ExpenseChart(familyExpenses, totalExpenses),
-        ],
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          if (constraints.maxWidth > 600) {
+            // Горизонтальний режим - розміщуємо діаграму збоку
+            return Row(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: FamilyExpensesInput(familyExpenses, updateTotalExpenses),
+                ),
+                Expanded(
+                  flex: 3,
+                  child: ExpenseChart(familyExpenses, totalExpenses),
+                ),
+              ],
+            );
+          } else {
+            // Вертикальний режим - розміщуємо діаграму внизу
+            return Column(
+              children: [
+                FamilyExpensesInput(familyExpenses, updateTotalExpenses),
+                Expanded(
+                  child: ExpenseChart(familyExpenses, totalExpenses),
+                ),
+              ],
+            );
+          }
+        },
       ),
     );
   }
@@ -104,35 +127,32 @@ class ExpenseChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: AspectRatio(
-        aspectRatio: 3.0, // Робимо aspectRatio 1.0, щоб отримати кругову діаграму
-        child: PieChart(
-          PieChartData(
-            sections: [
-              PieChartSectionData(
-                color: Colors.blue,
-                value: familyExpenses[0],
-                title: 'Батько',
-              ),
-              PieChartSectionData(
-                color: Colors.red,
-                value: familyExpenses[1],
-                title: 'Мати',
-              ),
-              PieChartSectionData(
-                color: Colors.green,
-                value: familyExpenses[2],
-                title: 'Дитина 1',
-              ),
-              PieChartSectionData(
-                color: Colors.yellow,
-                value: familyExpenses[3],
-                title: 'Дитина 2',
-              ),
-            ],
-          ),
+    return AspectRatio(
+      aspectRatio: 3.0,
+      child: PieChart(
+        PieChartData(
+          sections: [
+            PieChartSectionData(
+              color: Colors.blue,
+              value: familyExpenses[0],
+              title: 'Батько',
+            ),
+            PieChartSectionData(
+              color: Colors.red,
+              value: familyExpenses[1],
+              title: 'Мати',
+            ),
+            PieChartSectionData(
+              color: Colors.green,
+              value: familyExpenses[2],
+              title: 'Дитина 1',
+            ),
+            PieChartSectionData(
+              color: Colors.yellow,
+              value: familyExpenses[3],
+              title: 'Дитина 2',
+            ),
+          ],
         ),
       ),
     );
