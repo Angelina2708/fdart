@@ -32,7 +32,7 @@ class _AccountScreenState extends State<AccountScreen> {
             Icons.arrow_back_ios, // add custom icons also
           ),
         ),
-        title: const Text('Аккаунт'),
+        title: const Text('Account'),
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),
@@ -45,10 +45,10 @@ class _AccountScreenState extends State<AccountScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Ваш Email: ${user?.email}'),
+            Text('Your Email: ${user?.email}'),
             TextButton(
               onPressed: () => signOut(),
-              child: const Text('Выйти'),
+              child: const Text('Exit'),
             ),
           ],
         ),

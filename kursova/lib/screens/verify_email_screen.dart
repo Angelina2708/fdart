@@ -78,7 +78,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
       : Scaffold(
           resizeToAvoidBottomInset: false,
           appBar: AppBar(
-            title: const Text('Верификация Email адреса'),
+            title: const Text('Email address verification'),
           ),
           body: SafeArea(
             child: Padding(
@@ -87,7 +87,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    'Письмо с подтверждением было отправлено на вашу электронную почту.',
+                    'A confirmation email has been sent to your email.',
                     style: TextStyle(
                       fontSize: 20,
                     ),
@@ -96,7 +96,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                   ElevatedButton.icon(
                     onPressed: canResendEmail ? sendVerificationEmail : null,
                     icon: const Icon(Icons.email),
-                    label: const Text('Повторно отправить'),
+                    label: const Text('Resend'),
                   ),
                   const SizedBox(height: 20),
                   TextButton(
@@ -105,7 +105,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                       await FirebaseAuth.instance.currentUser!.delete();
                     },
                     child: const Text(
-                      'Отменить',
+                      'Cancel',
                       style: TextStyle(
                         color: Colors.blue,
                       ),

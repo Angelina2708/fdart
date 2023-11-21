@@ -37,14 +37,14 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
       if (e.code == 'user-not-found') {
         SnackBarService.showSnackBar(
           context,
-          'Такой email незарегистрирован!',
+          'This email is not registered!',
           true,
         );
         return;
       } else {
         SnackBarService.showSnackBar(
           context,
-          'Неизвестная ошибка! Попробуйте еще раз или обратитесь в поддержку.',
+          'Unknown error! Try again or contact support.',
           true,
         );
         return;
@@ -52,7 +52,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
     }
 
     const snackBar = SnackBar(
-      content: Text('Сброс пароля осуществен. Проверьте почту'),
+      content: Text('Resetting your password is now complete. Check your email'),
       backgroundColor: Colors.green,
     );
 
@@ -66,7 +66,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Сброс пароля'),
+        title: const Text('Password reset'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(30.0),
@@ -80,17 +80,17 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 controller: emailTextInputController,
                 validator: (email) =>
                     email != null && !EmailValidator.validate(email)
-                        ? 'Введите правильный Email'
+                        ? 'Enter correct Email'
                         : null,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  hintText: 'Введите Email',
+                  hintText: 'Enter Email',
                 ),
               ),
               const SizedBox(height: 30),
               ElevatedButton(
                 onPressed: resetPassword,
-                child: const Center(child: Text('Сбросить пароль')),
+                child: const Center(child: Text('Password reset')),
               ),
             ],
           ),

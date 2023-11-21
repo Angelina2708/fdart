@@ -265,28 +265,40 @@ class _SelfEsteemTestState extends State<SelfEsteemTest> {
                             style: ElevatedButton.styleFrom(
                               primary: Colors.red,
                             ),
-                            child: Text('Дуже часто'),
+                            child: Text(
+                              'Дуже часто',
+                              style: TextStyle(color: Colors.white),
+                            ),
                           ),
                           ElevatedButton(
                             onPressed: () => answerQuestion(3), // Часто
                             style: ElevatedButton.styleFrom(
                               primary: Colors.orange,
                             ),
-                            child: Text('Часто'),
+                            child: Text(
+                              'Часто',
+                              style: TextStyle(color: Colors.white),
+                            ),
                           ),
                           ElevatedButton(
                             onPressed: () => answerQuestion(2), // Рідко
                             style: ElevatedButton.styleFrom(
                               primary: Colors.blue,
                             ),
-                            child: Text('Рідко'),
+                            child: Text(
+                              'Рідко',
+                              style: TextStyle(color: Colors.white),
+                            ),
                           ),
                           ElevatedButton(
                             onPressed: () => answerQuestion(1), // Ніколи
                             style: ElevatedButton.styleFrom(
                               primary: Colors.green,
                             ),
-                            child: Text('Ніколи'),
+                            child: Text(
+                              'Ніколи',
+                              style: TextStyle(color: Colors.white),
+                            ),
                           ),
                         ],
                       ),

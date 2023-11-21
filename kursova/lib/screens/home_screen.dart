@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Главная страница'),
+        title: const Text('Main page'),
         actions: [
           IconButton(
             onPressed: () {
@@ -33,7 +33,7 @@ class HomeScreen extends StatelessWidget {
             },
             icon: Icon(
               Icons.person,
-              color: (user == null) ? Colors.white : Colors.yellow,
+              color: (user == null) ? Color.fromARGB(255, 255, 39, 39) : const Color.fromARGB(255, 114, 255, 59),
             ),
           ),
         ],
@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: (user == null)
-              ? const Text("Контент для НЕ зарегистрированных в системе")
+              ? const Text("Please register first")
               : Test(),
           //child: Text('Контент для НЕ зарегистрированных в системе'),
         ),

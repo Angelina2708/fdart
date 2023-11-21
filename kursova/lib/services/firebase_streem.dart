@@ -13,7 +13,7 @@ class FirebaseStream extends StatelessWidget {
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return const Scaffold(
-              body: Center(child: Text('Что-то пошло не так!')));
+              body: Center(child: Text('Something went wrong!')));
         } else if (snapshot.hasData) {
           if (!snapshot.data!.emailVerified) {
             return const VerifyEmailScreen();

@@ -47,14 +47,14 @@ class _LoginScreenState extends State<LoginScreen> {
       if (e.code == 'user-not-found' || e.code == 'wrong-password') {
         SnackBarService.showSnackBar(
           context,
-          'Неправильный email или пароль. Повторите попытку',
+          'Incorrect email or password. Try again',
           true,
         );
         return;
       } else {
         SnackBarService.showSnackBar(
           context,
-          'Неизвестная ошибка! Попробуйте еще раз или обратитесь в поддержку.',
+          'Unknown error! Try again or contact support.',
           true,
         );
         return;
@@ -69,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Войти'),
+        title: const Text('Sign in'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(30.0),
@@ -83,11 +83,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 controller: emailTextInputController,
                 validator: (email) =>
                     email != null && !EmailValidator.validate(email)
-                        ? 'Введите правильный Email'
+                        ? 'Enter correct Email'
                         : null,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  hintText: 'Введите Email',
+                  hintText: 'Enter Email',
                 ),
               ),
               const SizedBox(height: 30),
@@ -96,12 +96,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 controller: passwordTextInputController,
                 obscureText: isHiddenPassword,
                 validator: (value) => value != null && value.length < 6
-                    ? 'Минимум 6 символов'
+                    ? 'Minimum 6 characters'
                     : null,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 decoration: InputDecoration(
                   border: const OutlineInputBorder(),
-                  hintText: 'Введите пароль',
+                  hintText: 'Enter password',
                   suffix: InkWell(
                     onTap: togglePasswordView,
                     child: Icon(
@@ -116,13 +116,13 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 30),
               ElevatedButton(
                 onPressed: login,
-                child: const Center(child: Text('Войти')),
+                child: const Center(child: Text('Sign in')),
               ),
               const SizedBox(height: 30),
               TextButton(
                 onPressed: () => Navigator.of(context).pushNamed('/signup'),
                 child: const Text(
-                  'Регистрация',
+                  'Registration',
                   style: TextStyle(
                     decoration: TextDecoration.underline,
                   ),
@@ -131,7 +131,7 @@ class _LoginScreenState extends State<LoginScreen> {
               TextButton(
                 onPressed: () =>
                     Navigator.of(context).pushNamed('/reset_password'),
-                child: const Text('Сбросить пароль'),
+                child: const Text('Reset the password'),
               ),
             ],
           ),

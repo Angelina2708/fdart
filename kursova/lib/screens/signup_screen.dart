@@ -43,7 +43,7 @@ class _SignUpScreen extends State<SignUpScreen> {
         passwordTextRepeatInputController.text) {
       SnackBarService.showSnackBar(
         context,
-        'Пароли должны совпадать',
+        'Passwords must match',
         true,
       );
       return;
@@ -60,14 +60,14 @@ class _SignUpScreen extends State<SignUpScreen> {
       if (e.code == 'email-already-in-use') {
         SnackBarService.showSnackBar(
           context,
-          'Такой Email уже используется, повторите попытку с использованием другого Email',
+          'This Email is already in use, try again using a different Email',
           true,
         );
         return;
       } else {
         SnackBarService.showSnackBar(
           context,
-          'Неизвестная ошибка! Попробуйте еще раз или обратитесь в поддержку.',
+          'Unknown error! Try again or contact support.',
           true,
         );
       }
@@ -81,7 +81,7 @@ class _SignUpScreen extends State<SignUpScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Зарегистрироваться'),
+        title: const Text('Register'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(30.0),
@@ -95,11 +95,11 @@ class _SignUpScreen extends State<SignUpScreen> {
                 controller: emailTextInputController,
                 validator: (email) =>
                     email != null && !EmailValidator.validate(email)
-                        ? 'Введите правильный Email'
+                        ? 'Enter correct Email'
                         : null,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  hintText: 'Введите Email',
+                  hintText: 'Enter Email',
                 ),
               ),
               const SizedBox(height: 30),
@@ -109,11 +109,11 @@ class _SignUpScreen extends State<SignUpScreen> {
                 obscureText: isHiddenPassword,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 validator: (value) => value != null && value.length < 6
-                    ? 'Минимум 6 символов'
+                    ? 'Minimum 6 characters'
                     : null,
                 decoration: InputDecoration(
                   border: const OutlineInputBorder(),
-                  hintText: 'Введите пароль',
+                  hintText: 'Enter password',
                   suffix: InkWell(
                     onTap: togglePasswordView,
                     child: Icon(
@@ -132,11 +132,11 @@ class _SignUpScreen extends State<SignUpScreen> {
                 obscureText: isHiddenPassword,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 validator: (value) => value != null && value.length < 6
-                    ? 'Минимум 6 символов'
+                    ? 'Minimum 6 characters'
                     : null,
                 decoration: InputDecoration(
                   border: const OutlineInputBorder(),
-                  hintText: 'Введите пароль еще раз',
+                  hintText: 'Enter your password again',
                   suffix: InkWell(
                     onTap: togglePasswordView,
                     child: Icon(
@@ -151,13 +151,13 @@ class _SignUpScreen extends State<SignUpScreen> {
               const SizedBox(height: 30),
               ElevatedButton(
                 onPressed: signUp,
-                child: const Center(child: Text('Регистрация')),
+                child: const Center(child: Text('Registration')),
               ),
               const SizedBox(height: 30),
               TextButton(
                 onPressed: () => Navigator.of(context).pop(),
                 child: const Text(
-                  'Войти',
+                  'Sign in',
                   style: TextStyle(
                     decoration: TextDecoration.underline,
                   ),
