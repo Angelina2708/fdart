@@ -43,7 +43,7 @@ class HomeScreen extends StatelessWidget {
           child: (user == null)
               ? const Text("Please register first")
               : Test(),
-          //child: Text('Контент для НЕ зарегистрированных в системе'),
+          //child: Text('для не зареєстрованих користувачів'),
         ),
       ),
     );
