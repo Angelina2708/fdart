@@ -8,7 +8,6 @@ import 'package:kursova/screens/signup_screen.dart';
 import 'package:kursova/screens/verify_email_screen.dart';
 import 'package:kursova/services/firebase_streem.dart';
 
-
 import 'firebase_options.dart';
 
 void main() async {
@@ -18,12 +17,6 @@ void main() async {
   );
   runApp(MyApp());
 }
-
-// Future<void> main() async {
-//   WidgetsFlutterBinding.ensureInitialized();
-//   await Firebase.initializeApp();
-//   runApp(const MyApp());
-// }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
